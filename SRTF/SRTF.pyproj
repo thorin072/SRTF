@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>292eb738-9210-4f07-b0fe-6ec09feda7b9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SRTF.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>SRTF</Name>
     <RootNamespace>SRTF</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,18 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GanttDiogramm.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GeneratorProcess.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plot.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ProcessInfo.py">
       <SubType>Code</SubType>
     </Compile>
