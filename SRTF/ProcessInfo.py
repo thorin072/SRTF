@@ -3,7 +3,7 @@ class ProcessInfo(object):
         self.PID=PID
         self.ArrivalTime = ArrivalTime
         self.BurstTime = BurstTime
-        self.PlaceQueue= 1000;
+        self.PlaceQueue= None;
     """description of class"""
 
 

@@ -4,10 +4,10 @@ import random
 class GanttDiogramm(object):
     def __init__(self):
         pass
-    def DrawProcess(self,array,n):
+    def DrawProcess(self,array,n,array_PID):
         df=[]
         color_d=dict()
-        for i in range(1,n+1):
+        for i in array_PID:
             r = random.randint(0,255)
             g=random.randint(0,155)
             b=random.randint(0,255)
