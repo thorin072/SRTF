@@ -20,6 +20,10 @@ class GanttDiogramm(object):
         fig['layout']['xaxis'].update({'type': None})
 
         fig.show()
+       # fig2= ff.create_gantt(df,colors=color_d, index_col='Resource', title='GANTT Process',show_colorbar=True, bar_width=0.5, showgrid_x=True, showgrid_y=True, group_tasks=True)
+       # fig2['layout']['xaxis'].update({'type': None})
+
+       # fig2.show()
     """description of class"""
 
 

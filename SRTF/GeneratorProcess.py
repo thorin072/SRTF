@@ -6,19 +6,19 @@ class GeneratorProcess(object):
         self.array=None
         self.count=None;
     def Test (self):
-        #process1=process.ProcessInfo(1,0,7)
-        #process2=process.ProcessInfo(2,1,5)
-        #process3=process.ProcessInfo(3,2,3)
-        #process4=process.ProcessInfo(4,3,1)
-        #process5=process.ProcessInfo(5,4,2)
-        #process6=process.ProcessInfo(6,5,1)
-        #self.array=[process1,process2,process3,process4,process5,process6]
+        process1=process.ProcessInfo(1,0,7)
+        process2=process.ProcessInfo(2,1,5)
+        process3=process.ProcessInfo(3,2,3)
+        process4=process.ProcessInfo(4,3,1)
+        process5=process.ProcessInfo(5,4,2)
+        process6=process.ProcessInfo(6,5,1)
+        self.array=[process1,process2,process3,process4,process5,process6]
 
         
-        process1=process.ProcessInfo(1,0,8)
-        process2=process.ProcessInfo(2,1,2)
-        process3=process.ProcessInfo(3,4,3)
-        self.array=[process1,process2,process3]
+        #process1=process.ProcessInfo(1,0,18)
+        #process2=process.ProcessInfo(2,6,4)
+        #process3=process.ProcessInfo(3,4,3)
+        #self.array=[process1,process2]
         return self.array
     def AnyCombination(self,count):
         pid=set()

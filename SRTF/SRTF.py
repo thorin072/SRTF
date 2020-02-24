@@ -31,7 +31,6 @@ class SRTF(object):
        list_pos_srtf=[] #последовательность исполнения процессов
        time_CPU=0;
        sl=2
-      
        applicants=[x for x in self.array if x.ArrivalTime==0] #поиск всех процессов с Arrival Time=0
        #поиск процессов с мин Burst Time при Arrival Time=0
        PID_executed=self.__NextProcess(applicants);
@@ -57,6 +56,7 @@ class SRTF(object):
                    self.array.pop(PID_executed_index);
                    self.__UpdateQueue(self.array[:sl],PID_executed_index-1,time_CPU,len(self.array),True,prev)
                    PID_executed=self.__NextProcess(self.array[:sl],key=True);
+                   prev=PID_executed
                    sl+=1
                else:
                     #обновление очереди
@@ -86,7 +86,7 @@ class SRTF(object):
                curUpPID=x.PID #номер процесса по Arrival Time
                break
        if delete==False:
-           listProcess[PID_ind].PlaceQueue=n
+           listProcess[PID_ind].PlaceQueue=100
        
        #ситуация когда актуальный процесс имеет меньший Burst чем предыдущий
        curIndex=self.__GetIndex(listProcess,curUpPID)

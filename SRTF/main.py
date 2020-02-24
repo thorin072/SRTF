@@ -4,8 +4,8 @@ import GanttDiogramm as GD
 from prettytable import PrettyTable
 
 if __name__ == "__main__":
-   # list_proc=gp.GeneratorProcess().Test()
-    list_proc=gp.GeneratorProcess().AnyCombination(2)
+    #list_proc=gp.GeneratorProcess().Test()
+    list_proc=gp.GeneratorProcess().AnyCombination(10)
     n_proc=len(list_proc) #число процессов
     PID_ID=[x.PID for x in list_proc]
     table_info=PrettyTable()
