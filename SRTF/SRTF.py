@@ -29,6 +29,7 @@ class SRTF(object):
    
    def GetSequenceProcesses(self):
        list_pos_srtf=[] #последовательность исполнения процессов
+       list_quenue=[] #лист очереди процессов
        time_CPU=0;
        sl=2
        applicants=[x for x in self.array if x.ArrivalTime==0] #поиск всех процессов с Arrival Time=0
@@ -38,13 +39,20 @@ class SRTF(object):
        print('Start process is: P',PID_executed);
        while True:
            if self.array:
-               el_srtf=pl.Plot()
-               el_srtf.pos='P'+str(PID_executed)
-               el_srtf.start_time=time_CPU
+               start_time=None
+               end_time=None
+               start_time=time_CPU
                self.__InCPU(PID_executed,time_CPU)
                time_CPU+=1;
-               el_srtf.end_time=time_CPU
-               list_pos_srtf.append(el_srtf)
+               end_time=time_CPU
+
+               list_pos_srtf.append(pl.Plot(start_time,'P'+str(PID_executed),end_time))# добавление в список исполняемых процессов
+              # quenue_sorts=sorted(self.array, key=lambda el: el.PlaceQueue)# упорядоченый лист процессов по приоритету исполнения (места в очереди)
+               for x in self.array:
+                   if (x.PID!=PID_executed)&(x.PlaceQueue is not None):
+                       list_quenue.append(pl.Plot(start_time,'P'+str(x.PID),end_time))
+
+
 
                print('TIME UPD:{}\n\----------------/'.format(time_CPU))
                #находим процесс (индекс) который только что исполнялся
@@ -66,7 +74,7 @@ class SRTF(object):
                     prev=PID_executed
                     sl+=1
            else:
-                return list_pos_srtf 
+                return list_pos_srtf,list_quenue 
    
    def __UpdateQueue(self,listProcess,PID_ind,timeCPU,n,prev_PID,delete=False):
        swapPID=-10000

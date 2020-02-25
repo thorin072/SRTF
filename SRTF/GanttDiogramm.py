@@ -4,8 +4,9 @@ import random
 class GanttDiogramm(object):
     def __init__(self):
         pass
-    def DrawProcess(self,array,n,array_PID):
+    def DrawProcess(self,array,array_quenue,n,array_PID):
         df=[]
+        df_quenue=[]
         color_d=dict()
         for i in array_PID:
             r = random.randint(0,255)
@@ -15,15 +16,17 @@ class GanttDiogramm(object):
         for x in array:
             el=dict(Task=x.pos, Start=str(x.start_time), Finish=str(x.end_time),Resource=x.pos)
             df.append(el)
-        fig = ff.create_gantt(df,colors=color_d, index_col='Resource', title='GANTT Process',show_colorbar=True, bar_width=0.5, showgrid_x=True, showgrid_y=True, group_tasks=True)
-        
+        for x in array_quenue:
+            el=dict(Task=x.pos, Start=str(x.start_time), Finish=str(x.end_time),Resource=x.pos)
+            df_quenue.append(el)
+        fig = ff.create_gantt(df,colors=color_d, index_col='Resource', title='Диаграмма исполнения процессов для алгоритма SRTF ',show_colorbar=True, bar_width=0.5, showgrid_x=True, showgrid_y=True, group_tasks=True)
         fig['layout']['xaxis'].update({'type': None})
-
         fig.show()
-       # fig2= ff.create_gantt(df,colors=color_d, index_col='Resource', title='GANTT Process',show_colorbar=True, bar_width=0.5, showgrid_x=True, showgrid_y=True, group_tasks=True)
-       # fig2['layout']['xaxis'].update({'type': None})
 
-       # fig2.show()
+        fig2= ff.create_gantt(df_quenue,colors=color_d, index_col='Resource', title='GANTT Process',show_colorbar=True, bar_width=0.5, showgrid_x=True, showgrid_y=True, group_tasks=False)
+        fig2['layout']['xaxis'].update({'type': None})
+
+        fig2.show()
     """description of class"""
 
 
